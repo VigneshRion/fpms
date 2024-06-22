@@ -1,0 +1,72 @@
+<div class="col-lg-12">
+  <div class="row">
+    <!-- Revenue Card -->
+    <div class="col-xxl-3 col-md-4">
+      <div class="card info-card revenue-card">
+        <div class="card-body">
+          <h5 class="card-title">TOTAL INVESTMENTS</h5>
+          <div class="d-flex align-items-center">
+            <div
+              class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+            ></div>
+            <div class="card-content">
+              <h5>{{ investmentSummary?.totalTillNow | currency }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Revenue Card -->
+    <!-- Revenue Card -->
+    <div class="col-xxl-3 col-md-4">
+      <div class="card info-card revenue-card">
+        <div class="card-body">
+          <h5 class="card-title">TODAY'S</h5>
+          <div class="d-flex align-items-center">
+            <div
+              class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+            ></div>
+            <div class="card-content">
+              <h5>{{ investmentSummary?.todayTotal | currency }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Revenue Card -->
+    <!-- Revenue Card -->
+    <div class="col-xxl-3 col-md-4">
+      <div class="card info-card revenue-card">
+        <div class="card-body">
+          <h5 class="card-title">LAST 7 DAYS</h5>
+          <div class="d-flex align-items-center">
+            <div
+              class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+            ></div>
+            <div class="card-content">
+              <h5>{{ investmentSummary?.last7DaysTotal | currency }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Revenue Card -->
+    <!-- Revenue Card -->
+    <div class="col-xxl-3 col-md-4">
+      <div class="card info-card revenue-card">
+        <div class="card-body">
+          <h5 class="card-title">LAST 30 DAYS</h5>
+          <div class="d-flex align-items-center">
+            <div
+              class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+            ></div>
+            <div class="card-content">
+              <h5>{{ investmentSummary?.last30DaysTotal | currency }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Revenue Card -->
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.container {
+  max-width: 600px;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.btn {
+  width: 100%;
+}
+
+.text-danger {
+  font-size: 0.875rem;
+}
+
+.ag-theme-alpine {
+  font-size: 14px; // Adjust font size as needed
+  border-radius: 4px; // Optional: Add border radius to grid container
+}
+
+.ag-header-cell {
+  background-color: #f0f0f0; // Customize header background color
+  font-weight: bold; // Example: Make header text bold
+}
+
+.ag-cell {
+  padding: 8px; // Example: Add padding to cell content
+}
