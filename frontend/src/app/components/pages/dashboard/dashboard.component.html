@@ -1,0 +1,70 @@
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+    <a routerLink="/dashboard" class="logo d-flex align-items-center">
+      <span class="d-none d-lg-block">FPMS</span>
+    </a>
+    <button
+      *ngIf="!investmentService.isInvestmentForm"
+      (click)="investForm()"
+      class="btn btn-primary ms-3"
+    >
+      Add Investment
+    </button>
+  </div>
+
+  <nav class="header-nav ms-auto">
+    <ul class="d-flex align-items-center">
+      <li class="nav-item pe-3">Welcome, {{ user?.name }}</li>
+      <li class="nav-item pe-3 btn btn-danger" (click)="logout()" role="button">
+        Logout
+      </li>
+      <li class="nav-item pe-3"></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" class="main">
+  <section *ngIf="investmentService.isInvestmentForm" class="section dashboard">
+    <div class="row">
+      <app-investment-form></app-investment-form>
+    </div>
+  </section>
+
+  <div *ngIf="!investmentService.isInvestmentForm" class="dashboard-block">
+    <section class="section dashboard">
+      <div class="row">
+        <app-summary></app-summary>
+        <div class="col-6">
+          <div class="card">
+            <app-performance-metrics></app-performance-metrics>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+            <app-market-trends></app-market-trends>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dashboard">
+      <div class="row">
+        <div class="col-5">
+          <div class="card">
+            <app-asset-allocation></app-asset-allocation>
+          </div>
+        </div>
+        <div class="col-7">
+          <div class="card">
+            <ag-grid-angular
+              class="ag-theme-alpine"
+              [rowData]="investments"
+              [columnDefs]="columnDefs"
+              style="width: 100%; height: 400px"
+            ></ag-grid-angular>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

@@ -1,0 +1,124 @@
+<div class="row">
+  <h3 class="mb-4">Investment Form</h3>
+
+  <div class="col-md-5">
+    <form [formGroup]="investmentForm" (ngSubmit)="onSubmit()">
+      <div class="form-group mb-3">
+        <label for="assetType" class="form-label">Asset Type*</label>
+        <input
+          type="text"
+          id="assetType"
+          class="form-control"
+          formControlName="assetType"
+        />
+        <div
+          *ngIf="
+            investmentForm.get('assetType')?.invalid &&
+            (investmentForm.get('assetType')?.dirty ||
+              investmentForm.get('assetType')?.touched)
+          "
+          class="text-danger"
+        >
+          <small *ngIf="investmentForm.get('assetType')?.hasError('required')"
+            >Asset Type is required.</small
+          >
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="quantity" class="form-label">Quantity*</label>
+        <input
+          type="number"
+          id="quantity"
+          class="form-control"
+          formControlName="quantity"
+        />
+        <div
+          *ngIf="
+            investmentForm.get('quantity')?.invalid &&
+            (investmentForm.get('quantity')?.dirty ||
+              investmentForm.get('quantity')?.touched)
+          "
+          class="text-danger"
+        >
+          <small *ngIf="investmentForm.get('quantity')?.hasError('required')"
+            >Quantity is required.</small
+          >
+          <small *ngIf="investmentForm.get('quantity')?.hasError('min')"
+            >Quantity must be greater than zero.</small
+          >
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="purchasePrice" class="form-label">Purchase Price($)*</label>
+        <input
+          type="number"
+          id="purchasePrice"
+          class="form-control"
+          formControlName="purchasePrice"
+        />
+        <div
+          *ngIf="
+            investmentForm.get('purchasePrice')?.invalid &&
+            (investmentForm.get('purchasePrice')?.dirty ||
+              investmentForm.get('purchasePrice')?.touched)
+          "
+          class="text-danger"
+        >
+          <small
+            *ngIf="investmentForm.get('purchasePrice')?.hasError('required')"
+            >Purchase Price is required.</small
+          >
+          <small *ngIf="investmentForm.get('purchasePrice')?.hasError('min')"
+            >Purchase Price must be zero or more.</small
+          >
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="date" class="form-label">Date*</label>
+        <input
+          type="date"
+          id="date"
+          class="form-control"
+          formControlName="date"
+        />
+        <div
+          *ngIf="
+            investmentForm.get('date')?.invalid &&
+            (investmentForm.get('date')?.dirty ||
+              investmentForm.get('date')?.touched)
+          "
+          class="text-danger"
+        >
+          <small *ngIf="investmentForm.get('date')?.hasError('required')"
+            >Date is required.</small
+          >
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="investmentForm.invalid"
+      >
+        Add Investment
+      </button>
+
+      <button type="button" class="btn btn-secondary mt-3" (click)="goBack()">
+        Back
+      </button>
+    </form>
+  </div>
+
+  <div class="col-md-7 mt-5 mt-md-0">
+    <h5 class="text-center">Latest Investments</h5>
+    <ag-grid-angular
+      class="ag-theme-alpine"
+      [rowData]="investments"
+      [columnDefs]="columnDefs"
+      style="width: 100%; height: 400px"
+    ></ag-grid-angular>
+  </div>
+</div>

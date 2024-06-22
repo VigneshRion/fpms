@@ -1,0 +1,15 @@
+/* CSS for the parent container */
+.chart-wrapper {
+  /* Define clear dimensions to avoid conflicts */
+  width: 100%;
+  height: 500px; /* Define a height to avoid collapsing */
+  overflow: visible; /* Ensure overflow is visible */
+  position: relative; /* This is the parent context, adjust if needed */
+}
+
+/* Isolated CSS for the chart */
+ag-charts-angular {
+  width: 100%;
+  height: 100%;
+  /* Remove or avoid using position: relative; */
+}
