@@ -1,9 +1,11 @@
 # fpms
 
-frontend:
-npm install
-ng serve
+# frontend:
 
-server:
-npm install
-npm run dev
+- npm install
+- ng serve
+
+# server:
+
+- npm install
+- npm run dev
